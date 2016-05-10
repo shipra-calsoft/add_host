@@ -23,7 +23,7 @@
         <jar destfile="build/jar/add_host.jar" basedir="build/classes">
         
             <manifest>
-                <attribute name="Main-Class" value="add_host"/>
+                <attribute name="Main-Class" value="Service_Inst"/>
             </manifest>
         </jar>
    
