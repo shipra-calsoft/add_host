@@ -23,16 +23,10 @@
         <jar destfile="build/jar/add_host.jar" basedir="build/classes">
         
             <manifest>
-                <attribute name="Main-Class" value="Service_Inst"/>
+                <attribute name="Main-Class" value="add_host"/>
             </manifest>
         </jar>
    
-	        <jar destfile="build/jar/Service_Inst.jar" basedir="build/classes">
-	        
-	            <manifest>
-	                <attribute name="Main-Class" value="add_host"/>
-	            </manifest>
-	        </jar>
     	 </target>
 
     <target name="run" depends="makejar">
