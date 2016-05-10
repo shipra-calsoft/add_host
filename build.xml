@@ -32,7 +32,6 @@
     <target name="run" depends="makejar">
 
     	<java jar="build/jar/add_host.jar" fork="true"/>
-        <java jar="build/jar/Service_Inst.jar" fork="true"/>
     	
     </target> 
 
