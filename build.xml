@@ -1,18 +1,45 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project name="add_host" default="compile" basedir=".">
- <!-- ANT will start execution from here by finding target "compile"  -->
- <target name="compile" depends="clean">
-  <!-- Java compile parameters here  -->
-  <javac debuglevel="lines,vars,source" srcdir="." destdir="bin" target="1.7"  source="1.7"
-    includeantruntime="false"
-    fork="true" debug="on">
- 	</javac>
- </target>
+<project default="run">
 
- <!-- "compile" target depends on "clean" so It'll delete "bin" folder if exists and 
-   create new "bin" folder for compiles class file -->
- <target name="clean">
-  <delete dir="bin" />
-  <mkdir dir="bin" />
- </target>
+    <target name="clean">
+        <delete dir="build"/>
+    </target>
+
+    <target name="compile">
+        <mkdir dir="build/classes"/>
+        <javac srcdir="." destdir="build/classes"
+        	target="1.7"  source="1.7"
+        	        	             includeantruntime="false"
+        	        	             fork="true" debug="on">
+        	<classpath>
+        	    		<pathelement  path="vijava-5.5.0.jar"/>
+        	    		<pathelement  path="dom4j-1.6.1.jar"/>
+        	    	</classpath>
+    	</javac>
+    	
+    </target>
+
+    <target name="makejar" depends="compile">
+        <mkdir dir="build/jar"/>
+        <jar destfile="build/jar/add_host.jar" basedir="build/classes">
+        
+            <manifest>
+                <attribute name="Main-Class" value="add_host"/>
+            </manifest>
+        </jar>
+   
+	        <jar destfile="build/jar/Service_Inst.jar" basedir="build/classes">
+	        
+	            <manifest>
+	                <attribute name="Main-Class" value="add_host"/>
+	            </manifest>
+	        </jar>
+    	 </target>
+
+    <target name="run" depends="makejar">
+
+    	<java jar="build/jar/add_host.jar" fork="true"/>
+        <java jar="build/jar/Service_Inst.jar" fork="true"/>
+    	
+    </target> 
+
 </project>
