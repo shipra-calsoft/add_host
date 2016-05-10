@@ -41,3 +41,6 @@ public static void main(String args[]) throws RemoteException, MalformedURLExcep
 	cd.addHost_Task(spec, true, resourcePool);
 }
 }
+public class Service_Inst {
+
+}
