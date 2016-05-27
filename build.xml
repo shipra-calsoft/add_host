@@ -31,7 +31,9 @@
 
     <target name="run" depends="makejar">
 
-    	<java jar="build/jar/add_host.jar" fork="true"/>
+    	<java jar="build/jar/add_host.jar" fork="true" basedir = "build/classes" includes = "*.class"  manifest = "MANIFEST.MF"/>
+
+
     	
     </target> 
 
